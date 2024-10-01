@@ -1,0 +1,39 @@
+mkdir FLASKMarket
+cd FLASKMarket
+pip install flask
+flask --version
+set FLASK_APP=market.py
+flask_run
+set FLASK_DEBUG=1
+flask_run
+
+# after sqlAlchemy
+from market import db
+db.create_all()
+Item.query.all()
+
+#alternate methods..
+/*
+from market import app, db, Item
+
+# Create tables within application context
+with app.app_context(): #work in cmd prompt 
+    db.create_all()
+
+# Add items to the database
+with app.app_context():
+    item1 = Item(name="Iphone 13", price=500, barcode='987654678323', description='desc')
+    db.session.add(item1)
+    db.session.commit()
+
+# Ensure you're within the application context
+with app.app_context():
+    # Query all items from the Item table
+    items = Item.query.all()
+
+    # Print the items
+    for item in items:
+        print(item.name, item.price, item.barcode, item.description)
+
+os.system('cls')
+*/

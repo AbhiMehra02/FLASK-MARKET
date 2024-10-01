@@ -1,0 +1,112 @@
+mkdir FLASKMarket
+cd FLASKMarket
+pip install flask
+flask --version
+
+flask_run
+set FLASK_DEBUG=1
+flask_run
+
+# after sqlAlchemy
+from market import db
+db.create_all()
+
+/*
+from market import app, db, Item
+
+# Create tables within application context
+with app.app_context():
+    db.create_all()
+
+# Add items to the database
+with app.app_context():
+    item1 = Item(name="Iphone 13", price=500, barcode='987654678323', description='desc')
+    db.session.add(item1)
+    db.session.commit()
+
+# Ensure you're within the application context
+with app.app_context():
+    # Query all items from the Item table
+    items = Item.query.all()
+
+    # Print the items
+    for item in items:
+        print(item.name, item.price, item.barcode, item.description)
+
+import os
+os.system('cls')
+
+with app.app_context():
+    Item.query.filter_by(price=500)
+
+with app.app_context():
+     for item in Item.query.filter_by(price=500):             
+	item.name
+
+from market.models import db
+from market.routes import app
+with app.app_context():
+     db.drop_all()
+     db.create_all()
+
+with app.app_context():
+	u1 = User(username='jsc', password_hash='123456', email_address='jsc@jsc.com')
+	db.session.add(u1)
+	db.session.commit()
+
+with app.app_context():
+	User.query.all()
+
+
+// after making directory called market and put inside all of it..
+from market import app
+from market.models import User, Item
+with app.app_context():
+	Item.query.all()
+
+
+with app.app_context():
+    i1=Item(name="Pixel 6", description='description',barcode='125478259083',price=800)
+    db.session.add(i1)
+    db.session.commit()
+
+
+with app.app_context():
+    Item.query.all()
+
+with app.app_context():
+     item1.owner=User.query.filter_by(username='jsc').first()
+     db.session.add(item1)
+     db.session.commit()
+
+[SQL: UPDATE item SET owner=? WHERE item.id = ?]
+
+with app.app_context():
+     db.session.rollback()
+
+with app.app_context():
+     item1.owner=User.query.filter_by(username='jsc').first().id
+     db.session.add(item1)
+     db.session.commit()
+
+
+with app.app_context():
+     i=Item.query.filter_by(name='Pixel 6').first()
+     i.owned_user
+
+*/
+
+Flask Forms:..
+
+import os
+os.urandom(12).hex()
+'fe959aa397932cd16840fc18'
+
+register.html
+#check whether it is working or not 
+{% block content %}
+{{ form }}
+{% endblock %} 
+
+after run you would get something like..
+<market.forms.RegisterForm object at 0x000002045677E290>
